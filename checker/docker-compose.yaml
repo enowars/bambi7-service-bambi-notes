@@ -1,4 +1,4 @@
-version: '2.1'
+name: bambinotes_checker
 
 services:
   bambinotes-checker:
@@ -40,3 +40,7 @@ services:
       nproc:
         soft: 4000
         hard: 4000
+
+networks:
+  default:
+    name: bambinotes_checker
