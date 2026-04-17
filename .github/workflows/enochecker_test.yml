@@ -13,8 +13,8 @@ jobs:
   build:
     runs-on: self-hosted
     env:
-      ENOCHECKER_TEST_CHECKER_ADDRESS: localhost
-      ENOCHECKER_TEST_CHECKER_PORT: 5008
+      ENOCHECKER_CHECKER_ADDRESS: localhost
+      ENOCHECKER_CHECKER_PORT: 5008
 
     steps:
     - uses: actions/checkout@v2
@@ -40,7 +40,7 @@ jobs:
         docker compose up --force-recreate -d
     - name: obtain Docker host IP
       run: |
-        echo "ENOCHECKER_TEST_SERVICE_ADDRESS=$(ip -4 address show dev eth0 | grep inet | awk '{ print $2 }' | sed 's|/.*$||')" >> $GITHUB_ENV
+        echo "ENOCHECKER_SERVICE_ADDRESS=$(ip -4 address show dev eth0 | grep inet | awk '{ print $2 }' | sed 's|/.*$||')" >> $GITHUB_ENV
     - name: Wait for 15 seconds
       run: sleep 15     
     - name: run enochecker_test
