@@ -12,7 +12,7 @@ from enochecker3 import (
     Enochecker,
     ExploitCheckerTaskMessage,
     FlagSearcher,
-    BaseCheckerTaskMessage,
+    CheckerTaskMessage,
     PutflagCheckerTaskMessage,
     GetflagCheckerTaskMessage,
     PutnoiseCheckerTaskMessage,
@@ -57,7 +57,7 @@ class BambiNoteClient():
     UNAUTHENTICATED = 0
     
     state: "int | tuple[str, str]"
-    task: BaseCheckerTaskMessage
+    task: CheckerTaskMessage
     reader: StreamReader
     writer: StreamWriter
 
